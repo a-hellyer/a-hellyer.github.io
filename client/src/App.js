@@ -1,11 +1,12 @@
 import React from "react";
+import { useEffect, useState } from "react"
 import logo from "./logo.svg";
 import "./App.css";
 
 function App() {
-  const [data, setData] = React.useState(null);
+  /*const [data, setData] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
       .then((data) => setData(data.message));
@@ -15,10 +16,28 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{data ? data : "Loading..."}</p>
+        <p>{!data ? "Loading 2..." : data}</p>
+      </header>
+    </div>
+  );*/
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch("/select")
+    .then((res) => res.json())
+    .then((data) => setData(data.parts));
+  }, []);
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>{!data ? "Loading Parts List..." : data}</p>
       </header>
     </div>
   );
+
 }
 
 export default App;
