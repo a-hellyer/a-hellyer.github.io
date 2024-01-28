@@ -33,7 +33,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>{!data ? "Loading 3rd Parts List 2..." : data}</p>
+        <p>{!data ? "Loading 3rd Parts List 2...fixed" : data}</p>
       </header>
     </div>
   );
